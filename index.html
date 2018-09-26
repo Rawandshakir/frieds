@@ -8,7 +8,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
-   
+    .map{
+        width: 50rem;
+        height: 50rem;
+        border: 1rem solid black;
+        margin: 0 auto;
+    }
 </style>
 </head>
 <body>
@@ -45,15 +50,31 @@
             </div>
         </nav>
         <div class="container" id="container">
+            <div id="game">
 
             </div>
 
-        </div>
             <script>
+                var map = document.getElementById('game');
+                map.classList.add("map");
+
+                var sneak = {
+                    length:1,
+                    size:"5rem",
+                    speed:1,
+                    position:null,
+                };
+                var location = document.createElement('div');
+                sneak.position = location;
+
 
             </script>
 
         </div>
+
+
+
+
 
 
 </body>
