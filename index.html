@@ -9,7 +9,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body onload="stat()" onkeydown="uniKeyCode(event)">
 
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
@@ -43,10 +43,75 @@
             </div>
         </nav>
 
-        <div class="container">
-            
+        <div class="container" id="container"   >
+
         </div>
 
+<script>
+   var key;
+    var container = document.getElementById("container");
+    var snek = document.createElement("div");
+    snek.setAttribute("id", "snek");
+     container.appendChild(snek);
+    snek.style.position = "relative";
+    var  Top = 1;
+     var left = 1;
 
+
+
+   var eten = document.createElement("div");
+   eten.setAttribute("id", "eten");
+   container.appendChild(eten);
+  var e_top = 100;
+   var  e_left = 100;
+   eten.style.position = "relative";
+   eten.style.top =  e_top + "px";
+   eten.style.left = e_left +  "px";
+
+
+
+     function stat() {
+
+         switch (key){
+             case 40:
+                 Top++;
+                 snek.style.top = Top + "px";
+                 break;
+
+             case 39:
+                 left++;
+                 snek.style.left = left + "px";
+                 break;
+
+             case 37:
+                 left--;
+                 snek.style.left = left + "px";
+                 break;
+
+             case 38:
+                 Top--;
+                 snek.style.top = Top + "px";
+                 break;
+
+         }
+
+         if (Top == e_top && left == e_left){
+             alert("fuck yousef");
+         }
+
+         if ( Top == 478 || Top == 0 || left == 0  || left == 713){
+             clearInterval(fr);
+         }
+     }
+
+   var fr = setInterval(stat, 20);
+
+    function uniKeyCode(event) {
+         key = event.keyCode;
+       return key;
+    }
+
+
+</script>
 </body>
 </html>
